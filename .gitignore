@@ -1,0 +1,6 @@
+.DS_Store
+.env
+*.sqlite
+*.sqlite3
+*.db
+private/
