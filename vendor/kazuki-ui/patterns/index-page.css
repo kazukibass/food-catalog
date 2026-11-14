@@ -1,0 +1,50 @@
+/* Opt-in index composition. Load after core.css and a semantic theme.
+   No navigation, storage, or global element rules. */
+.kz-index {
+  --kz-index-width: 72rem;
+  --kz-index-gutter: clamp(1rem, 4vw, 3rem);
+  width: min(100%, var(--kz-index-width));
+  margin-inline: auto;
+  padding: var(--kz-space-6) var(--kz-index-gutter);
+  color: var(--kz-text);
+  font-family: var(--kz-font-sans);
+  line-height: 1.7;
+}
+.kz-index .kz-index-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--kz-space-5);
+  align-items: end;
+  padding-block: var(--kz-space-5) var(--kz-space-6);
+  border-bottom: 2px solid var(--kz-text);
+}
+.kz-index .kz-index-title {
+  margin: 0;
+  font: 600 clamp(2rem, 5vw, 3.5rem)/1.25 var(--kz-font-serif);
+  letter-spacing: .02em;
+  overflow-wrap: anywhere;
+}
+.kz-index .kz-index-lede {
+  max-width: 42rem;
+  margin: var(--kz-space-3) 0 0;
+  color: var(--kz-text-muted);
+}
+.kz-index .kz-index-meta {
+  margin: 0;
+  color: var(--kz-text-muted);
+  font: 500 .8125rem/1.7 var(--kz-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.kz-index .kz-index-section {
+  padding-block: var(--kz-space-6);
+  border-bottom: 1px solid var(--kz-border);
+  min-width: 0;
+}
+.kz-index .kz-index-section-title {
+  margin: 0 0 var(--kz-space-4);
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+@media (max-width: 40rem) {
+  .kz-index .kz-index-header { grid-template-columns: minmax(0, 1fr); gap: var(--kz-space-3); }
+}

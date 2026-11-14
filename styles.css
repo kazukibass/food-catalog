@@ -1,0 +1,87 @@
+/* Food Catalog: shared type/spacing, local catalog composition. */
+:root {
+  color-scheme: light;
+  --kz-bg: #f7f7f2;
+  --kz-surface: #fff;
+  --kz-surface-subtle: #eeefe8;
+  --kz-border: #d0d5ca;
+  --kz-text: #24372f;
+  --kz-text-muted: #53645a;
+  --kz-accent: #28634e;
+  --kz-accent-strong: #1c4b3a;
+  --kz-accent-surface: #e7eee8;
+  --kz-on-accent: #fff;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--kz-bg); color: var(--kz-text); font: 15px/1.7 var(--kz-font-sans); }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+button:disabled { opacity: .45; cursor: default; }
+a { color: var(--kz-accent); text-underline-offset: .2em; }
+:is(button, input, select, a, textarea, [tabindex]):focus-visible { outline: var(--kz-focus-width) solid var(--kz-accent); outline-offset: 3px; }
+p { margin: 0; }
+h2 { margin: 0; font-size: 1.125rem; }
+.app-header { padding: 12px clamp(16px, 4vw, 48px); border-bottom: 1px solid var(--kz-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.brand { font-weight: 700; display: flex; gap: 10px; align-items: center; }
+.brand span { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid var(--kz-text); border-radius: var(--kz-radius-sm); font: 600 14px var(--kz-font-mono); }
+.app-header nav { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; }
+.app-header a { display: inline-flex; align-items: center; min-height: var(--kz-touch-min); }
+.kb-shell-active .app-header { display: none; }
+.catalog-app { --kz-index-width: 80rem; padding-top: 8px; }
+.catalog-app .kz-index-header { padding-top: 32px; }
+.catalog-app .kz-index-meta { text-align: right; }
+.catalog-app .kz-index-meta strong { font: 500 2rem/1.2 var(--kz-font-mono); color: var(--kz-text); }
+.catalog-app .kz-index-meta span { display: block; }
+.heading { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.muted, .tag, .notice { font-size: 13px; color: var(--kz-text-muted); }
+.notice { margin-top: 12px; max-width: 64rem; overflow-wrap: anywhere; }
+label { display: block; font-size: 14px; margin-bottom: 8px; font-weight: 600; }
+input, select { width: 100%; min-width: 0; padding: 10px 12px; min-height: var(--kz-touch-min); border: 1px solid #7e8c82; border-radius: var(--kz-radius-sm); background: var(--kz-surface); }
+input[type=number] { text-align: right; }
+.catalog-filters { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+.quiet { min-height: var(--kz-touch-min); padding: 8px 12px; background: var(--kz-surface); border: 1px solid #7e8c82; border-radius: var(--kz-radius-sm); }
+.quiet:not(:disabled):hover { border-color: var(--kz-accent); background: var(--kz-accent-surface); }
+.primary { width: 100%; min-height: var(--kz-touch-min); border: 0; background: var(--kz-accent); color: var(--kz-on-accent); padding: 14px; border-radius: var(--kz-radius-sm); font-weight: 700; margin-top: 24px; }
+.primary:not(:disabled):hover { background: var(--kz-accent-strong); }
+.results-heading { margin-top: 28px; margin-bottom: 12px; }
+.table-scroll-note { display: none; }
+.food-table-wrap { overflow-x: auto; max-width: 100%; }
+.food-table { border-collapse: collapse; width: 100%; font-size: 13px; }
+.food-table caption { text-align: left; color: var(--kz-text-muted); padding-bottom: 10px; font-size: 12px; }
+.food-table th { background: var(--kz-surface-subtle); white-space: nowrap; font-size: 12px; }
+.food-table td, .food-table th { padding: 12px 10px; border-bottom: 1px solid var(--kz-border); text-align: right; font-variant-numeric: tabular-nums; }
+.food-table td:first-child, .food-table th:first-child { text-align: left; min-width: 230px; }
+.food-table td:first-child { font-weight: 600; }
+.food-table td small { display: block; color: var(--kz-text-muted); font-weight: 400; margin-top: 4px; }
+.food-table tbody tr:hover { background: var(--kz-accent-surface); }
+.food-table .quiet { white-space: nowrap; font-size: 12px; }
+.pager { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 24px; }
+#catalog-page { font: 13px var(--kz-font-mono); }
+.source-section { display: grid; grid-template-columns: minmax(8rem, 1fr) minmax(0, 3fr); gap: 24px; }
+.source-section .notice:first-child { margin-top: 0; }
+dialog { width: min(640px, calc(100% - 32px)); max-height: 90dvh; overflow: auto; border: 1px solid var(--kz-border); border-radius: var(--kz-radius-md); padding: 24px; color: var(--kz-text); background: var(--kz-surface); }
+dialog::backdrop { background: #18252e88; }
+dialog h3 { font-size: 18px; margin: 0 0 8px; }
+.nutrition-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 16px 0; }
+.nutrient { padding: 12px; border-bottom: 1px solid var(--kz-border); background: var(--kz-bg); text-align: right; }
+.nutrient span { display: block; font-size: 12px; color: var(--kz-text-muted); }
+.nutrient strong { font-size: 20px; font-variant-numeric: tabular-nums; }
+.nutrient small { font-size: 12px; margin-left: 4px; }
+.record-note { padding: 16px; background: var(--kz-accent-surface); margin-top: 16px; border-radius: var(--kz-radius-sm); }
+.copy-box { width: 100%; min-height: 140px; font: 12px/1.5 var(--kz-font-mono); padding: 12px; border: 1px solid var(--kz-border); background: var(--kz-surface); }
+#copy-status { min-height: 24px; }
+.skip { position: absolute; left: 8px; top: -100px; padding: 8px; background: var(--kz-surface); z-index: 1000; }
+.skip:focus { top: 8px; }
+footer { max-width: 80rem; margin: auto; padding: 0 clamp(16px, 4vw, 48px) 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12px; color: var(--kz-text-muted); }
+@media (max-width: 40rem) {
+  .table-scroll-note { display: block; margin-bottom: 12px; }
+  .catalog-app .kz-index-meta { text-align: left; }
+  .catalog-app .kz-index-meta strong { font-size: 1.375rem; }
+  .catalog-app .kz-index-meta span { display: inline; margin-left: 8px; }
+  .catalog-filters, .source-section { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  dialog { padding: 16px; }
+  .nutrient { padding: 8px; }
+  .nutrient strong { font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
