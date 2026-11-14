@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "datasetVersion": "2026-11-14",
+  "foodCount": 2538,
+  "categoryCount": 18,
+  "nutritionBasis": {
+    "amount": 100,
+    "unit": "g",
+    "portion": "可食部"
+  },
+  "fields": {
+    "calories": "kcal",
+    "protein": "g",
+    "fat": "g",
+    "carbohydrate": "g",
+    "fiber": "g",
+    "sugar": "g; derived"
+  },
+  "sources": [
+    {
+      "name": "Fridge Quest 食品マスター",
+      "description": "食品マスターの食品名・食品群・カロリー・たんぱく質・脂質・炭水化物のみを抽出。アカウントや個人履歴は含まない。"
+    },
+    {
+      "name": "Fridge Quest food_master_prime.xlsx",
+      "description": "食品名の完全一致で食物繊維を照合。2390件に値あり。未収載148件。"
+    }
+  ],
+  "transformations": {
+    "sugar": "max(0, carbohydrate - fiber); either missing => null",
+    "trace": "Tr is stored as zero",
+    "missing": "null (not zero)",
+    "parenthesizedValues": "Numeric values in parentheses are parsed as numbers"
+  },
+  "restaurantMenusIncluded": false
+}
