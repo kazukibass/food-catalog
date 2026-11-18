@@ -1,0 +1,8 @@
+{
+  "repository": "kazukibass/kazuki-ui",
+  "sourceCommit": "250526fc3f51ad769230b186cc6377ef338abde0",
+  "files": {
+    "tokens/core.css": "5b68ba9f1a42c255cf1a35af2066c56c22bc654c8b20b71c84ef9a842c1fa1a5",
+    "patterns/index-page.css": "cad19478b37a3c92e51d9fe98bbde27a77ba4bab038eb88c742ea52d60106706"
+  }
+}

@@ -1,0 +1,39 @@
+/* kazuki-ui prototype v0.1.0 — structural tokens and semantic color contract */
+:root {
+  color-scheme: light dark;
+
+  --kz-font-sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", Meiryo, system-ui, sans-serif;
+  --kz-font-serif: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, "Noto Serif JP", serif;
+  --kz-font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --kz-space-1: 0.25rem;
+  --kz-space-2: 0.5rem;
+  --kz-space-3: 0.75rem;
+  --kz-space-4: 1rem;
+  --kz-space-5: 1.5rem;
+  --kz-space-6: 2rem;
+
+  --kz-radius-sm: 0.375rem;
+  --kz-radius-md: 0.625rem;
+  --kz-radius-lg: 1rem;
+  --kz-radius-pill: 999px;
+
+  --kz-shadow-sm: 0 1px 2px rgb(22 25 28 / 5%);
+  --kz-shadow-md: 0 6px 20px rgb(22 25 28 / 8%);
+
+  --kz-touch-min: 44px;
+  --kz-nav-bottom-size: clamp(4rem, 10dvh, 5.25rem);
+  --kz-nav-inline-size: clamp(11.25rem, 16vw, 15rem);
+  --kz-nav-rail-size: 3.5rem;
+  --kz-nav-handle-size: 2.25rem;
+  --kz-z-nav: 100;
+
+  --kz-hover-opacity: 8%;
+  --kz-pressed-opacity: 14%;
+  --kz-selected-opacity: 18%;
+  --kz-disabled-opacity: 45%;
+  --kz-focus-width: 3px;
+  --kz-motion-fast: 120ms;
+  --kz-motion-normal: 220ms;
+  --kz-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
